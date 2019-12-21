@@ -1,24 +1,10 @@
 import de.voidplus.leapmotion.*;
-//https://github.com/genekogan/p5js-osc
  
 mport oscP5.*;
 import netP5.*;
 
 OscP5 oscP5;
 NetAddress myRemoteLocation;
-
-
-// ======================================================
-// Table of Contents:
-// ├─ 1. Callbacks
-// ├─ 2. Hand
-// ├─ 3. Arms
-// ├─ 4. Fingers
-// ├─ 5. Bones
-// ├─ 6. Tools
-// └─ 7. Devices
-// ======================================================
-
 
 LeapMotion leap;
 
@@ -31,9 +17,6 @@ void setup() {
   leap = new LeapMotion(this);
 }
 
-
-// ======================================================
-// 1. Callbacks
 
 void leapOnInit() {
   // println("Leap Motion Init");
