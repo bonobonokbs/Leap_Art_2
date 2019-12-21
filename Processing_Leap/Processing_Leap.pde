@@ -28,8 +28,6 @@ void setup() {
   oscP5 = new OscP5(this, 8000);
   myRemoteLocation = new NetAddress("127.0.0.1", 12000);
 
-
-
   leap = new LeapMotion(this);
 }
 
@@ -132,6 +130,16 @@ void draw() {
       PVector fingerVelocity   = finger.getVelocity();
       PVector fingerDirection  = finger.getDirection();
       float   fingerTime       = finger.getTimeVisible();
+      
+   OscMessage myMessage = new OscMessage("/test");
+   
+     myMessage.add(handPosition.x);
+     myMessage.add(handPosition.z);
+     myMessage.add(handPosition.y);
+     //myMessage.add(fingerId);
+     println(handPosition);
+     oscP5.send(myMessage, myRemoteLocation);
+
       
   
 
