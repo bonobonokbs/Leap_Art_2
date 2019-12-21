@@ -7,7 +7,7 @@ var x,y,z;
 function setup() {
   canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.position(windowWidth/2 - canvasWidth/2, 20);
-  setupOSC(12000,3334);
+  setupOsc(12000,3334);
   background(0);
   textSize(40);
 }
