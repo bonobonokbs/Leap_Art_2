@@ -1,11 +1,14 @@
 let canvas;
-let canvasWidth = 600;
-let canvasHeight = 400;
+let canvasWidth = 1000;
+let canvasHeight = 500;
+
+var x,y,z;
 
 function setup() {
   canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.position(windowWidth/2 - canvasWidth/2, 20);
-  noCursor();
+  setupOSC(12000,3334);
+  background(0);
 }
 
 function draw() {
