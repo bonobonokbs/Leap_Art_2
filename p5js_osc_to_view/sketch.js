@@ -9,28 +9,38 @@ function setup() {
   canvas.position(windowWidth/2 - canvasWidth/2, 20);
   setupOSC(12000,3334);
   background(0);
+  textSize(40);
 }
 
 function draw() {
-  background(255, 255, 255);
+	if(z<= 50){
+		fill(255);
+		rect(0,0,200,50);
+		fill(0);
+		text("Stop", 10, 40);
+	}else{
+		fill(255);
+		rect(0,0,200,40);
+		fill(0);
+		text("running",10,40);
 
- fill(0);
- textAlign(CENTER);
- text('Click to create a new sprite', width/2, height/2);
- //draw all the sprites added to the sketch so far
- //the positions will be updated automatically at every cycle
- drawSprites();
+		noStroke();
+		fill(map(z,50,500,0,255), 255, map(z,50,300,0,255));
+		ellipse(x, y, 15, 15);
+
+	}
+	//fill(0);
+	//text("I'm p5.js", x-25, y);
+
 }
 
-function mousePressed() {
+function receiveOsc(address, value) {
+	console.log("received OSC: " + address + ", " + value);
 
-  //create a sprite at the mouse position and store it in a temporary variable
-  var s = createSprite(mouseX, mouseY, 30, 30);
-  //if no image or animation is associated it will be a rectancle of the specified size
-  //and a random color
-
-  //now you can use the variable to set properties
-  //e.g. a random velocity on the x and y coordinates
-  s.velocity.x = random(-5, 5);
-  s.velocity.y = random(-5, 5);
+	if (address == '/test') {
+		x = value[0];
+		y = 500 - (value[1]*5);
+		z = value[2];
+	}
 }
+
