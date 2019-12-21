@@ -1,6 +1,12 @@
 import de.voidplus.leapmotion.*;
 //https://github.com/genekogan/p5js-osc
  
+mport oscP5.*;
+import netP5.*;
+
+OscP5 oscP5;
+NetAddress myRemoteLocation;
+
 
 // ======================================================
 // Table of Contents:
