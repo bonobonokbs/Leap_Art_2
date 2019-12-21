@@ -25,6 +25,9 @@ LeapMotion leap;
 void setup() {
   size(800, 500);
   background(255);
+  oscP5 = new OscP5(this, 8000);
+  myRemoteLocation = new NetAddress("127.0.0.1", 12000);
+
 
 
   leap = new LeapMotion(this);
